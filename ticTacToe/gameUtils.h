@@ -1,3 +1,14 @@
+/**
+* Author(s): David Ryan
+* Date Created: 10/18/2018
+* Date Modified: 10/18/2018
+* Class: CSCE155e
+* Professor: Dr. Chris Bourke
+* NUID: 47810715
+*/
+
+
+
 typedef enum {
   TWO_PLAYER        = 1,
   ONE_PLAYER_RANDOM = 2,

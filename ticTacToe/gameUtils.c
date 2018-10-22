@@ -20,7 +20,8 @@ Move ** copyBoard(Move **board) {
       copy[i][j] = board[i][j];
     }
   }
-  return board;
+  // 5) didn't return copy
+  return copy;
 }
 
 Move ** newBoard() {
@@ -52,7 +53,8 @@ void printBoard(Move **board) {
       }
     }
     printf("\n");
-    if(i<3) {
+    // 6) To many lines on the tictactoe grid
+    if(i<2) {
       printf("  ------+-------+------\n");
     }
   }
@@ -82,7 +84,8 @@ Status getStatus(Move **board) {
   Status s = TIE;
 
   if( //rows
-      (board[0][1] == board[0][1] && board[0][1] == board[0][1] && board[0][0] == X) ||
+    // 2) didn't correctly check for the first row of x's
+      (board[0][0] == board[0][1] && board[0][1] == board[0][2] && board[0][0] == X) ||
       (board[1][0] == board[1][1] && board[1][1] == board[1][2] && board[1][0] == X) ||
       (board[2][0] == board[2][1] && board[2][1] == board[2][2] && board[2][0] == X) ||
       //cols
@@ -112,7 +115,8 @@ Status getStatus(Move **board) {
     int i, j;
     for(i=0; i<3; i++) {
       for(j=0; j<3; j++) {
-        if(board[i][j] == O || board[i][j] == X) {
+        // 1) didn't check for beginng board which would have been filled with NONE's
+        if(board[i][j] == NONE) {
           s = PLAYING;
         }
       }
